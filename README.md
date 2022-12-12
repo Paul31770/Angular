@@ -1,7 +1,6 @@
 # Foot
 
 <!-- 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 -->
-<!-- efgthyjukk -->
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
 
