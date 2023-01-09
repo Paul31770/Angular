@@ -4,7 +4,8 @@ import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { IJoueur } from '../IJoueur';
 
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { JoueurService } from '../joueur.service';
 @Component({
   selector: 'app-formulaire',
   templateUrl: './formulaire.component.html',
@@ -13,14 +14,30 @@ import { Router } from '@angular/router';
 
 export class FormulaireComponent implements OnInit {
   router: any;
-  constructor(private fb:FormBuilder){
+  constructor(private fb:FormBuilder, private route: ActivatedRoute, private joueurService: JoueurService){
     }
+
   goToJoueur(id:number){
     this.router.navigate(['/foot','edit', id])
   }
+
   ngOnInit(): void {
-    if (this.foot)
-      {this.joueurForm.patchValue(this.foot);}
+    if (this.foot){
+      this.joueurForm.patchValue(this.foot);
+    }
+    else{
+      this.route.paramMap.subscribe(params=>{
+        if(params.has('id')){
+          const id=Number(params.get('id'));
+          this.foot=this.joueurService.getJoueur(id);
+        }
+        if(this.foot){
+          this.joueurForm.patchValue(this.foot);
+          
+        }
+
+      })
+    }
   }
   
   @Input() public foot : IJoueur |undefined;
