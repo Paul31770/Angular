@@ -4,9 +4,16 @@ import { FootListComponent } from './foot/foot-list/foot-list.component';
 import { FormulaireComponent } from './foot/formulaire/formulaire.component';
 
 const routes: Routes = [
-  { path: 'foot/edit/:id', component:FormulaireComponent},
-  {path : 'foot/liste', component:FootListComponent},
-  { path: '', redirectTo: '/foot/liste', pathMatch: 'full' }];
+  {
+    path: '',
+    children: [
+      { path: 'foot/edit/:id', component:FormulaireComponent},
+    {path : 'foot/liste', component:FootListComponent},
+    { path: '', redirectTo: '/foot/liste', pathMatch: 'full' }
+  ]
+
+  }
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

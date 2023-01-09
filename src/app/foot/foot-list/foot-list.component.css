@@ -12,12 +12,14 @@ h2{
 th{
 
     border: 1px solid black;
+    
     width: 70%;
 }
 
 td{
     
     border: 1px solid black;
+    
     padding-left: 10px;
     padding-right: 10px;
     cursor: pointer;

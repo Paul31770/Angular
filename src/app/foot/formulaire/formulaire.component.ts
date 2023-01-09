@@ -13,8 +13,8 @@ import { JoueurService } from '../joueur.service';
 })
 
 export class FormulaireComponent implements OnInit {
-  router: any;
-  constructor(private fb:FormBuilder, private route: ActivatedRoute, private joueurService: JoueurService){
+  
+  constructor(private fb:FormBuilder, private route: ActivatedRoute, private joueurService: JoueurService, private router: Router){
     }
 
   goToJoueur(id:number){
@@ -33,7 +33,7 @@ export class FormulaireComponent implements OnInit {
         }
         if(this.foot){
           this.joueurForm.patchValue(this.foot);
-          
+
         }
 
       })
@@ -54,7 +54,8 @@ export class FormulaireComponent implements OnInit {
     if(this.joueurForm.valid){
       this.foot!.nom=this.joueurForm.value.nom??'';
       this.foot!.age=this.joueurForm.value.age??0;
-     
+     this.router.navigate(['/foot','liste']);
  }
+
 }}
 
