@@ -1,0 +1,13 @@
+<h2>Foot</h2>
+<table>
+  <th id="un">Nom</th>
+  <th id="deux">Prenom</th>
+  <th id="trois">Age</th>
+
+  <tr *ngFor="let joueur of footArray" (click)="onSelect(joueur)">
+    <td>{{ joueur.nom }}</td>
+    <td>{{ joueur.prenom }}</td>
+    <td>{{ joueur.age }}</td>
+  </tr>
+</table>
+<app-formulaire [foot]="jou" *ngIf="jou"></app-formulaire>
