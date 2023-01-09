@@ -1,0 +1,17 @@
+<form [formGroup]="joueurForm" >
+    <p>Editez :</p>
+    <label>Nom </label>
+    <input id="nom" formControlName="nom" type="text">
+
+    <label>Age </label>
+    <input id="age" formControlName="age" type="number">
+    <button (click)="onSubmit()" type="button">Submit</button>
+</form>
+<form [formGroup]="joueurForm" >
+<div id="erreur" *ngIf="joueurForm.invalid">
+    <p *ngIf="joueurForm.get('nom')!.errors?. ['required']">Entrez un nom</p>
+    <p *ngIf="joueurForm.get('age')!.errors?. ['required']">Entrez un age</p>
+    <p *ngIf="joueurForm.get('age')!.errors?. ['min']">Entrez un age supérieur à 15</p>
+    <p *ngIf="joueurForm.get('nom')!.errors?. ['minlength']">Entrez un avec 4 caractères</p>
+</div>
+</form>

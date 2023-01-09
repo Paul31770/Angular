@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h2{
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 600;
+    padding-left: 50px;
+
+}
+th{
+
+    border: 1px solid black;
+    width: 70%;
+}
+
+td{
+    
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+#un, #deux{
+    width: 10%;
+}
+#trois{
+    width: 5%;
+}
+table{
+    width: 70%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
